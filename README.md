@@ -11,3 +11,9 @@ http://angularjs.org/
 
 Express.js
 http://expressjs.com/
+
+Mongo database
+http://www.mongodb.org/
+
+Mongoose - Database adapter
+http://mongoosejs.com/
