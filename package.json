@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/robertjanzen/evidence",
   "dependencies": {
-    "express": "~3.4.4"
+    "express": "~3.4.4",
+    "mongoose": "~3.8.1"
   }
 }
