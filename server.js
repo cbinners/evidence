@@ -1,7 +1,10 @@
 var express = require("express");
 var config = require("./config");
+var mongoose = require("mongoose");
 var path = require("path");
 var app = express();
+
+mongoose.connect(config.dbConnectionString);
 
 app.configure(function() {
 	app.use(express.cookieParser());
