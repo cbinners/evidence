@@ -17,3 +17,6 @@ http://www.mongodb.org/
 
 Mongoose - Database adapter
 http://mongoosejs.com/
+
+Bootswatch - Bootstrap themes
+http://bootswatch.com/

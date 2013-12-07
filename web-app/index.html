@@ -1,0 +1,24 @@
+<html ng-app="evidence">
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+		<title>Show Me the Evidence!</title>
+		<!-- these get requested once when we first visit the site -->
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+		<link rel="stylesheet" href="/static/css/main.css">
+		<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.4.0/moment.min.js"></script>
+		<script src="/static/js/libs/angular.min.js"></script>
+		<script src="/static/js/libs/angular-route.min.js"></script>
+		<script src="/static/js/libs/angular-sanitize.min.js"></script>
+		<script src="/static/js/angular-app.js"></script>
+	</head>
+	<body>
+		<h1>Show me the evidence!</h1>
+		<i class="fa-thumbs-up"></i>
+		<!-- this is where angular fills in our template -->
+		<div class="container" ng-view></div>
+	</body>
+</html>
