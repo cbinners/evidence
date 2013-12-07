@@ -5,10 +5,11 @@ app.config(function($routeProvider, $locationProvider) {
     $routeProvider
     .when("/", {controller: HomeCtrl, templateUrl: "/static/templates/home.html"})
     .when("/about", {templateUrl: "/static/templates/about.html"})
-    .otherwise({controller: "NotFoundCtrl", templateUrl: "/static/html/notfound.html"});
+    .when("/issue/:slug", {controller: IssueCtrl, templateUrl: "/static/templates/issue.html"})
+    .otherwise({redirectTo: "/"});
 });
 
-function HomeCtrl($scope) {
+function HomeCtrl($scope, $routeParams) {
     $scope.doThing = function() {
         $scope.data = "Data changed";
     };
@@ -19,5 +20,11 @@ function HomeCtrl($scope) {
     	$scope.$apply(function() {
     		$scope.dataFromApi = response;
     	});
+    });
+}
+
+function IssueCtrl($scope, $routeParams) {
+    $.get("/api/issues?slug=" + $routeParams.slug, function(response) {
+        $scope.issue = response[0];
     });
 }

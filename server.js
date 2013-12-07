@@ -44,6 +44,8 @@ app.post(config.apiPrefix + "/cards", cardResource.create);
 app.put(config.apiPrefix + "/cards/:id", cardResource.update);
 app.del(config.apiPrefix + "/cards/:id", cardResource.remove);
 
+app.get(config.apiPrefix + "/issues", issueResource.list);
+
 //all other routes serve the ember app
 app.all("*", function(req, res) {
 	res.sendfile(path.join(config.webAppPath, "/index.html"));
