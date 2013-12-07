@@ -7,7 +7,7 @@ module.exports = {
     },
 
     get: function(req, res) {
-        genericResource.get(Issue, req, res);
+       genericResource.get(Issue, req, res);
     },
 
     create: function(req, res) {

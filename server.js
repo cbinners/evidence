@@ -1,7 +1,9 @@
 var express = require("express");
 var config = require("./config");
+var issueResource = require("./resources/issueResource");
 var path = require("path");
 var app = express();
+
 
 app.configure(function() {
 	app.use(express.cookieParser());
@@ -23,6 +25,8 @@ process.on("uncaughtException", function(error) {
 app.get(config.apiPrefix + "/example", function(req, res) {
 	res.send("Data from API");
 });
+
+app.get(config.apiPrefix + "/issues", issueResource.list);
 
 //all other routes serve the ember app
 app.all("*", function(req, res) {
