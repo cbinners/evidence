@@ -9,25 +9,15 @@
 	<button ng-click="" class="pull-right"> DERP &rarr; </button>
 	<div class="clearfix"></div>
 	<div class="row">
-		<div class="col-xs-6">
+		<div class="col-xs-6" ng-repeat="view in views">
 			<div class="panel panel-default">
 				<div class="panel-title">
-					{{ views[0].title }}
+					{{views.title}}
 				</div>
-				<div class="panel-body">
+				<div class="panel-body" ng-controller="CardsCtrl">
 					<div ng-repeat="card in cards">
-						<div class="well">{{ card.title }}</div>
+						<div class="well">{{card.title}}</div>
 					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-xs-6">
-			<div class="panel panel-default">
-				<div class="panel-title">
-					{{ views[1].title }}
-				</div>
-				<div class="panel-body">
-					INSERT VIEWPOINT DATA HERE
 				</div>
 			</div>
 		</div>
