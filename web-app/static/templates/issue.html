@@ -1,3 +1,6 @@
 <div class="page-header">
-	<h1>{{issue.title}}</h1>
+	<h1 ng-if="issue">{{issue.title}}</h1>
+	<h1 ng-if="!issue">
+		<div class="alert alert-danger">Sorry, we could not find your issue!</div>
+	</h1>
 </div>

@@ -18,13 +18,15 @@ function HomeCtrl($scope, $routeParams) {
 
     $.get("/api/example", function(response) {
     	$scope.$apply(function() {
-    		$scope.dataFromApi = response;
+    		$scope.dataFromApi = null;
     	});
     });
 }
 
 function IssueCtrl($scope, $routeParams) {
     $.get("/api/issues?slug=" + $routeParams.slug, function(response) {
-        $scope.issue = response[0];
+        $scope.$apply(function() {
+            $scope.issue = response[0] || null;
+        });
     });
 }
