@@ -27,6 +27,21 @@ function IssueCtrl($scope, $routeParams) {
     $.get("/api/issues?slug=" + $routeParams.slug, function(response) {
         $scope.$apply(function() {
             $scope.issue = response[0] || null;
+
+            if ($scope.issue) {
+                $.get("/api/viewpoints", function(views) {
+                    $scope.$apply(function(){
+                        $scope.views = views || null;
+                        if ($scope.views) {
+                            $.get("/api/cards", function(cards){
+                                $scope.$apply(function(){
+                                    $scope.cards = cards;
+                                });
+                            });
+                        }
+                    });
+                });
+            }
         });
     });
 }

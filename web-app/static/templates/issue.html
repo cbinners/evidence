@@ -4,3 +4,32 @@
 		<div class="alert alert-danger">Sorry, we could not find your issue!</div>
 	</h1>
 </div>
+<div ng-if="issue">
+	<button ng-click="" class="pull-left"> &larr; HERP </button>
+	<button ng-click="" class="pull-right"> DERP &rarr; </button>
+	<div class="clearfix"></div>
+	<div class="row">
+		<div class="col-xs-6">
+			<div class="panel panel-default">
+				<div class="panel-title">
+					{{ views[0].title }}
+				</div>
+				<div class="panel-body">
+					<div ng-repeat="card in cards">
+						<div class="well">{{ card.title }}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-6">
+			<div class="panel panel-default">
+				<div class="panel-title">
+					{{ views[1].title }}
+				</div>
+				<div class="panel-body">
+					INSERT VIEWPOINT DATA HERE
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
