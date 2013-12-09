@@ -1,4 +1,19 @@
-<h2>Home</h2>
-<button type="button" ng-click="doThing()">Do Thing</button>
-<p>Data 1: {{data}}</p>
-<p>Data 2: {{dataFromApi}}</p>
+<div class="jumbotron">
+	<div class="container">
+		<h1><i class="fa fa-check"></i> Show me the evidence!</h1>
+		<p>Not everything is black and white. <em>Show me the evidence!</em> is a collaborative wiki-like site for comparing and sharing opinions on issues of any type. We promote data-centric discussion by only allowing comments in the context of external links to supporting evidence.</p>
+		<strong>It's not about who's right or wrong, it's about understanding each other. <i class="fa fa-lightbulb-o"></i></strong>
+		<p>To get started, <a href="/edit/issue">create a new issue</a> or explore these popular issues below:</p>
+	</div>
+</div>
+
+<div class="container">
+	<ul class="list-group">
+		<a href="/issue/{{issue.slug}}" ng-repeat="issue in issues">
+			<li class="list-group-item">
+				<b>{{issue.title}}</b>
+				<span class="badge"><i class="fa fa-lightbulb-o"></i> {{issue.brightCounter}}</span>
+			</li>
+		</a>
+	</ul>
+</div>

@@ -16,15 +16,9 @@ app.filter("fromNow", function() {
 });
 
 function HomeCtrl($scope, $routeParams) {
-	$scope.doThing = function() {
-		$scope.data = "Data changed";
-	};
-	
-	$scope.data = "Some data";
-
-	$.get("/api/example", function(response) {
+	$.get("/api/issues", function(response) {
 		$scope.$apply(function() {
-			$scope.dataFromApi = null;
+			$scope.issues = response;
 		});
 	});
 }

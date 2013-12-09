@@ -3,7 +3,15 @@ var Issue = require("../model/issue");
 
 module.exports = {
     list: function(req, res) {
-        genericResource.list(Issue, req, res);
+        var query = Issue.find(req.query);
+        query.sort("-brightCounter");
+        query.exec(function(error, result) {
+            if (error) {
+                console.log(error);
+                return res.send(400);
+            }
+            res.send(result);
+        });
     },
 
     get: function(req, res) {
