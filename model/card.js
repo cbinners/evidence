@@ -8,6 +8,7 @@ var Card = new Schema({
 	brightCounter: {type: Number, required: true, default: 0},
 	thumbnailUrl: {type: String},
 	//user: {type: String, required: true}
+	description: {type: String, required: false, max: 1000},
 	datePosted: {type: Date, required: true, default: Date.now},
 });
 
