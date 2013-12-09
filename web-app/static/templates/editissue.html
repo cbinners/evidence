@@ -1,0 +1,18 @@
+<div class="container">
+	<h1 ng-if="!issue._id">New Issue</h1>
+	<h1 ng-if="issue._id">Edit Issue: {{issue.title}}</h1>
+
+	<p class="alert-error" ng-show="errorMessage">{{errorMessage}}</p>
+
+	<form role="form" name="form" class="css-form" novalidate>
+		<label for="title">Title ({{150 - issue.title.length}})</label>
+		<input id="title" class="form-control" type="text" ng-model="issue.title" required maxlength="150" placeholder="The title of the issue. Example: Global Warming"/>
+
+		<label ng-if="!issue._id" for="slug">URL-friendly title ({{100 - issue.slug.length}})</label>
+		<input ng-if="!issue._id" id="slug" class="form-control" type="text" ng-model="issue.slug" required maxlength="100" placeholder="The title using only alphanumeric characters, hyphens '-', and underscores '_'."/>
+
+		<button type="button" class="pull-right" ng-click="submit()" ng-disabled="form.$invalid">Save</button>
+		<div ng-show="issue._id"><button type="button" class="pull-right" ng-click="del()">Delete</button></div>
+	</form>
+
+</div>

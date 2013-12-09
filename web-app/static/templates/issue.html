@@ -5,12 +5,16 @@
 <div class="issue" ng-if="issue">
 	<div class="issue-header">
 		<h2 ng-if="issue">{{issue.title}}</h2>
+		<button type="button" ng-click="addView()">Add a view</button>
+		<button ng-click="go('/issue/' + issue.slug + '/edit')" class="button">Edit</button>
 		<button ng-click="brightIssue(issue)" ng-disabled="issue.voted"><i class="fa fa-lightbulb-o"></i> Bright</button>
 		<button ng-click="dimIssue(issue)" ng-disabled="issue.voted">Dim</button>
 		<span class="badge">{{issue.brightCounter}}</span>
 
 		<div class="viewpoints-toggle">
-			<h5>Show/Hide Viewpoints</h5>
+			<h5 ng-if="views.length > 0">Show/Hide Viewpoints</h5>
+			<h3 ng-if="views.length == 0">There are no views yet!</h3>
+
 			<div class="hover-hand inline-label" ng-click="toggleVisible(view)" ng-repeat="view in views">
 				<span class="label label-success" ng-if="view.visible">{{view.title}}</span>
 				<span class="label label-default" ng-if="!view.visible">{{view.title}}</span>
