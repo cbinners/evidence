@@ -5,7 +5,7 @@
 <div class="issue" ng-if="issue">
 	<div class="issue-header">
 		<h2 ng-if="issue">{{issue.title}}</h2>
-		<button type="button" ng-click="addView()">Add a view</button>
+		<button type="button" data-toggle="modal" data-target="#viewmodal">Add a Viewpoint</button>
 		<button ng-click="go('/issue/' + issue.slug + '/edit')" class="button">Edit</button>
 		<button ng-click="brightIssue(issue)" ng-disabled="issue.voted"><i class="fa fa-lightbulb-o"></i> Bright</button>
 		<button ng-click="dimIssue(issue)" ng-disabled="issue.voted">Dim</button>
@@ -13,7 +13,7 @@
 
 		<div class="viewpoints-toggle">
 			<h5 ng-if="views.length > 0">Show/Hide Viewpoints</h5>
-			<h3 ng-if="views.length == 0">There are no views yet!</h3>
+			<h3 ng-if="views.length == 0">There are no viewpoints yet!</h3>
 
 			<div class="hover-hand inline-label" ng-click="toggleVisible(view)" ng-repeat="view in views">
 				<span class="label label-success" ng-if="view.visible">{{view.title}}</span>
@@ -43,3 +43,27 @@
 		</div>
 	</div>
 </div>
+
+<!-- view modal -->
+<div class="modal fade" id="viewmodal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 ng-if="!view_model._id" class="modal-title">Create Viewpoint</h4>
+				<h4 ng-if="view_model._id" class="modal-title">Edit Viewpoint</h4>
+			</div>
+			<div class="modal-body">
+				<form role="form" name="form" class="css-form" novalidate>
+					<label for="title">Title ({{150 - view_model.title.length}})</label>
+					<input id="title" class="form-control" type="text" ng-model="view_model.title" required maxlength="150" placeholder="The title of the viewpoint"/>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" ng-click="submitView()" ng-disabled="form.$invalid" class="btn btn-primary">Save</button>
+					</div>
+				</form>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

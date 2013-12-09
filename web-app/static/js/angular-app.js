@@ -77,6 +77,23 @@ function EditIssueCtrl($scope, $routeParams, $location) {
 }
 
 function IssueCtrl($scope, $routeParams) {
+	//create a new viewpoint
+	$scope.submitView = function() {
+		$("#viewmodal").modal("hide");
+		$scope.view_model.issueSlug = $scope.issue.slug;
+		$.ajax({
+			url: "/api/viewpoints",
+			type: "post",
+			data: $scope.view_model,
+			success: function(response) {
+				$scope.$apply(function() {
+					response.visible = true;
+					$scope.views.push(response);
+				});
+			}
+		});
+	};
+
 	$scope.toggleVisible = function(view) {
 		view.visible = !view.visible;
 	};
