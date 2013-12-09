@@ -36,7 +36,9 @@
 				</div>
 				<div class="panel-body">
 					<div ng-repeat="card in view.cards">
-						<div class="well">{{card.title}}</div>
+						<div class="well">
+							<a href={{card.url}}>{{card.title}}</a>
+						</div>
 					</div>
 				</div>
 			</div>
