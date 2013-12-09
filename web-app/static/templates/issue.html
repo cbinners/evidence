@@ -1,24 +1,29 @@
-<div class="page-header">
-	<h1 ng-if="issue">{{issue.title}}</h1>
-	<h1 ng-if="!issue">
-		<div class="alert alert-danger">Sorry, we could not find your issue!</div>
-	</h1>
+<div ng-if="!issue" class="container page-header">
+	<div class="alert alert-danger"><h2>Sorry, we could not find your issue!</h2></div>
 </div>
-<div ng-if="issue">
-	<button ng-click="" class="pull-left"> &larr; HERP </button>
-	<button ng-click="" class="pull-right"> DERP &rarr; </button>
-	<div class="clearfix"></div>
-	<div class="row">
-		<div class="col-xs-6" ng-repeat="view in views">
-			<div class="panel panel-default">
-				<div class="panel-title">
-					{{view.title}}
-				</div>
-				<div class="panel-body" ng-controller="CardsCtrl">
-					<div ng-repeat="card in cards">
-						<div class="well">{{card.title}}</div>
+
+<div class="issue" ng-if="issue">
+	<div class="issue-header">
+		<p class="pull-right">Created {{issue.datePosted | fromNow}}</p>
+		<h2 ng-if="issue"><span class="badge">{{issue.brightCounter}}</span> {{issue.title}}</h2>
+	</div>
+
+	<div class="viewpoints-wrapper">
+		<div class="viewpoints">
+			<div class="viewpoint" ng-repeat="view in views">
+
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<p class="pull-right">Created {{view.datePosted | fromNow}}</p>
+						<h4><span class="badge">{{view.brightCounter}}</span> {{view.title}}</h4>
+					</div>
+					<div class="panel-body" ng-controller="CardsCtrl">
+						<div ng-repeat="card in cards">
+							<div class="well">{{card.title}}</div>
+						</div>
 					</div>
 				</div>
+
 			</div>
 		</div>
 	</div>

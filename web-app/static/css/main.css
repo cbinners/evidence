@@ -1,4 +1,29 @@
 a {
   text-decoration: none;
-  color: #be364d;
 }
+
+#main-content {
+	margin-top: 50px;
+}
+
+.viewpoints-wrapper {
+	width: 100%;
+	overflow-x: scroll;
+}
+
+.viewpoint {
+	display: table-cell;
+	min-width: 400px;
+}
+
+.issue {
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+.issue-header {
+	padding: 12px;
+	margin-bottom: 12px;
+	text-align: center;
+}
+

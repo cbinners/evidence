@@ -18,7 +18,7 @@
 		<script src="/static/js/angular-app.js"></script>
 	</head>
 	<body>
-		<nav class="navbar navbar-default" role="navigation">
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 		  <!-- Brand and toggle get grouped for better mobile display -->
 		  <div class="navbar-header">
 		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -41,6 +41,6 @@
 		  </div><!-- /.navbar-collapse -->
 		</nav>
 		<!-- this is where angular fills in our template -->
-		<div class="container" ng-view></div>
+		<div id="main-content" ng-view></div>
 	</body>
 </html>

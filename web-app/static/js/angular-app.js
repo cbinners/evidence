@@ -9,6 +9,12 @@ app.config(function($routeProvider, $locationProvider) {
 	.otherwise({redirectTo: "/"});
 });
 
+app.filter("fromNow", function() {
+    return function(dateString) {
+        return moment(new Date(dateString)).fromNow()
+    };
+});
+
 function HomeCtrl($scope, $routeParams) {
 	$scope.doThing = function() {
 		$scope.data = "Data changed";
