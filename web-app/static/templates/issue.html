@@ -37,7 +37,8 @@
 				<div class="panel-body">
 					<div ng-repeat="card in view.cards">
 						<div class="well">
-							<a href={{card.url}}>{{card.title}}</a>
+							<p class="pull-right">{{card.datePosted | fromNow}}</p>
+							<a href="{{card.url}}">{{card.title}}</a>
 						</div>
 					</div>
 				</div>
