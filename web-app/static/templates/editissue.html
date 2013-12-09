@@ -11,8 +11,7 @@
 		<label ng-if="!issue._id" for="slug">URL-friendly title ({{100 - issue.slug.length}})</label>
 		<input ng-if="!issue._id" id="slug" class="form-control" type="text" ng-model="issue.slug" required maxlength="100" placeholder="The title using only alphanumeric characters, hyphens '-', and underscores '_'."/>
 
-		<button type="button" class="pull-right" ng-click="submit()" ng-disabled="form.$invalid">Save</button>
-		<div ng-show="issue._id"><button type="button" class="pull-right" ng-click="del()">Delete</button></div>
+		<button type="button"  class="btn btn-default pull-right" ng-click="submit()" ng-disabled="form.$invalid">Save</button>
+		<div ng-show="issue._id"><button type="button"  class="btn btn-default pull-right" ng-click="del()">Delete</button></div>
 	</form>
-
 </div>

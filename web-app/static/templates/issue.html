@@ -5,10 +5,10 @@
 <div class="issue" ng-if="issue">
 	<div class="issue-header">
 		<h2 ng-if="issue">{{issue.title}}</h2>
-		<button type="button" data-toggle="modal" data-target="#viewmodal">Add a Viewpoint</button>
-		<button ng-click="go('/issue/' + issue.slug + '/edit')" class="button">Edit</button>
-		<button ng-click="brightIssue(issue)" ng-disabled="issue.voted"><i class="fa fa-lightbulb-o"></i> Bright</button>
-		<button ng-click="dimIssue(issue)" ng-disabled="issue.voted">Dim</button>
+		<button type="button" data-toggle="modal" data-target="#viewmodal" class="btn btn-default">Add a Viewpoint</button>
+		<button ng-click="go('/issue/' + issue.slug + '/edit')"  class="btn btn-default">Edit</button>
+		<button ng-click="brightIssue(issue)" ng-disabled="issue.voted" class="btn btn-default"><i class="fa fa-lightbulb-o"></i> Bright</button>
+		<button ng-click="dimIssue(issue)" ng-disabled="issue.voted" class="btn btn-default">Dim</button>
 		<span class="badge">{{issue.brightCounter}}</span>
 
 		<div class="viewpoints-toggle">
@@ -29,9 +29,9 @@
 				<div class="panel-heading">
 					<p class="pull-right">Created {{view.datePosted | fromNow}}</p>
 					<h4>{{view.title}}</h4>
-					<button type="button" ng-click="showCardModal(view)">Add Evidence</button>
-					<button ng-click="brightView(view)" ng-disabled="view.voted"><i class="fa fa-lightbulb-o"></i> Bright</button>
-					<button ng-click="dimView(view)" ng-disabled="view.voted">Dim</button>
+					<button type="button" ng-click="showCardModal(view)" class="btn btn-default">Add Evidence</button>
+					<button ng-click="brightView(view)" ng-disabled="view.voted" class="btn btn-default"><i class="fa fa-lightbulb-o"></i> Bright</button>
+					<button ng-click="dimView(view)" ng-disabled="view.voted" class="btn btn-default">Dim</button>
 					<span class="badge">{{view.brightCounter}}</span>
 				</div>
 				<div class="panel-body">
@@ -39,8 +39,8 @@
 						<div class="well">
 							<p class="pull-right">{{card.datePosted | fromNow}}</p>
 							<h4><a href="{{card.url}}">{{card.title}}</a></h4>
-							<button ng-click="brightCard(card)" ng-disabled="card.voted"><i class="fa fa-lightbulb-o"></i> Bright</button>
-							<button ng-click="dimCard(card)" ng-disabled="card.voted">Dim</button>
+							<button ng-click="brightCard(card)" ng-disabled="card.voted" class="btn btn-default"><i class="fa fa-lightbulb-o"></i> Bright</button>
+							<button ng-click="dimCard(card)" ng-disabled="card.voted" class="btn btn-default">Dim</button>
 							<span class="badge">{{card.brightCounter}}</span>
 						</div>
 					</div>
