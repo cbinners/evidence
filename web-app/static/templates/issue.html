@@ -4,8 +4,10 @@
 
 <div class="issue" ng-if="issue">
 	<div class="issue-header">
-		<p class="pull-right">Created {{issue.datePosted | fromNow}}</p>
-		<h2 ng-if="issue"><span class="badge">{{issue.brightCounter}}</span> {{issue.title}}</h2>
+		<h2 ng-if="issue">{{issue.title}}</h2>
+		<button ng-click="brightIssue(issue)" ng-disabled="issue.voted"><i class="fa fa-lightbulb-o"></i> Bright</button>
+		<button ng-click="dimIssue(issue)" ng-disabled="issue.voted">Dim</button>
+		<span class="badge">{{issue.brightCounter}}</span>
 
 		<div class="viewpoints-toggle">
 			<h5>Show/Hide Viewpoints</h5>
@@ -17,14 +19,17 @@
 	</div>
 
 	<div class="viewpoints">
-		<div class="viewpoint" ng-repeat="view in views" ng-if="view.visible">
+		<div class="viewpoint" ng-controller="ViewpointCtrl" ng-repeat="view in views" ng-if="view.visible">
 
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<p class="pull-right">Created {{view.datePosted | fromNow}}</p>
-					<h4><span class="badge">{{view.brightCounter}}</span> {{view.title}}</h4>
+					<h4>{{view.title}}</h4>
+					<button ng-click="brightView(view)" ng-disabled="view.voted"><i class="fa fa-lightbulb-o"></i> Bright</button>
+					<button ng-click="dimView(view)" ng-disabled="view.voted">Dim</button>
+					<span class="badge">{{view.brightCounter}}</span>
 				</div>
-				<div class="panel-body" ng-controller="CardsCtrl">
+				<div class="panel-body">
 					<div ng-repeat="card in cards">
 						<div class="well">{{card.title}}</div>
 					</div>

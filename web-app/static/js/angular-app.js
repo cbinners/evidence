@@ -34,6 +34,34 @@ function IssueCtrl($scope, $routeParams) {
 		view.visible = !view.visible;
 	};
 
+	$scope.brightIssue = function(issue) {
+		issue.brightCounter++;
+		issue.voted = true;
+
+		$.ajax({
+			url: "/api/issues/" + issue._id,
+			type: "put",
+			data: issue,
+			success: function(response) {
+				console.log(response);
+			}
+		});
+	};
+
+	$scope.dimIssue = function(issue) {
+		issue.brightCounter--;
+		issue.voted = true;
+
+		$.ajax({
+			url: "/api/issues/" + issue._id,
+			type: "put",
+			data: issue,
+			success: function(response) {
+				console.log(response);
+			}
+		});
+	};
+
 	//load the issue
 	$.get("/api/issues?slug=" + $routeParams.slug, function(response) {
 		$scope.$apply(function() {
@@ -56,10 +84,39 @@ function IssueCtrl($scope, $routeParams) {
 	});
 }
 
-function CardsCtrl($scope) {
+function ViewpointCtrl($scope) {
 	$.get("/api/cards?viewpointId=" + $scope.view._id, function(cards) {
 		$scope.$apply(function() {
 			$scope.cards = cards;
 		});
 	});
+
+
+	$scope.brightView = function(view) {
+		view.brightCounter++;
+		view.voted = true;
+
+		$.ajax({
+			url: "/api/viewpoints/" + view._id,
+			type: "put",
+			data: view,
+			success: function(response) {
+				console.log(response);
+			}
+		});
+	};
+
+	$scope.dimView = function(view) {
+		view.brightCounter--;
+		view.voted = true;
+
+		$.ajax({
+			url: "/api/viewpoints/" + view._id,
+			type: "put",
+			data: view,
+			success: function(response) {
+				console.log(response);
+			}
+		});
+	};
 }
