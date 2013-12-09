@@ -30,6 +30,10 @@ function HomeCtrl($scope, $routeParams) {
 }
 
 function IssueCtrl($scope, $routeParams) {
+	$scope.toggleVisible = function(view) {
+		view.visible = !view.visible;
+	};
+
 	//load the issue
 	$.get("/api/issues?slug=" + $routeParams.slug, function(response) {
 		$scope.$apply(function() {
@@ -41,6 +45,13 @@ function IssueCtrl($scope, $routeParams) {
 	$.get("/api/viewpoints?issueSlug=" + $routeParams.slug, function(views) {
 		$scope.$apply(function() {
 			$scope.views = views || null;
+
+			//make the first two views visible
+			if (views) {
+				for (var i = 0; i < views.length && i < 2; i++) {
+					views[i].visible = true;
+				}
+			}
 		});
 	});
 }

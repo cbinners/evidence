@@ -6,14 +6,13 @@ a {
 	margin-top: 50px;
 }
 
-.viewpoints-wrapper {
+.viewpoints {
+	display: table;
 	width: 100%;
-	overflow-x: scroll;
 }
 
 .viewpoint {
 	display: table-cell;
-	min-width: 400px;
 }
 
 .issue {
@@ -27,3 +26,11 @@ a {
 	text-align: center;
 }
 
+.hover-hand {
+	cursor: pointer;
+}
+
+.inline-label {
+	display: inline-block;
+	margin-left: 4px;
+}

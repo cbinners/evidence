@@ -6,25 +6,31 @@
 	<div class="issue-header">
 		<p class="pull-right">Created {{issue.datePosted | fromNow}}</p>
 		<h2 ng-if="issue"><span class="badge">{{issue.brightCounter}}</span> {{issue.title}}</h2>
+
+		<div class="viewpoints-toggle">
+			<h5>Show/Hide Viewpoints</h5>
+			<div class="hover-hand inline-label" ng-click="toggleVisible(view)" ng-repeat="view in views">
+				<span class="label label-success" ng-if="view.visible">{{view.title}}</span>
+				<span class="label label-default" ng-if="!view.visible">{{view.title}}</span>
+			</div>
+		</div>
 	</div>
 
-	<div class="viewpoints-wrapper">
-		<div class="viewpoints">
-			<div class="viewpoint" ng-repeat="view in views">
+	<div class="viewpoints">
+		<div class="viewpoint" ng-repeat="view in views" ng-if="view.visible">
 
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<p class="pull-right">Created {{view.datePosted | fromNow}}</p>
-						<h4><span class="badge">{{view.brightCounter}}</span> {{view.title}}</h4>
-					</div>
-					<div class="panel-body" ng-controller="CardsCtrl">
-						<div ng-repeat="card in cards">
-							<div class="well">{{card.title}}</div>
-						</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<p class="pull-right">Created {{view.datePosted | fromNow}}</p>
+					<h4><span class="badge">{{view.brightCounter}}</span> {{view.title}}</h4>
+				</div>
+				<div class="panel-body" ng-controller="CardsCtrl">
+					<div ng-repeat="card in cards">
+						<div class="well">{{card.title}}</div>
 					</div>
 				</div>
-
 			</div>
+
 		</div>
 	</div>
 </div>
