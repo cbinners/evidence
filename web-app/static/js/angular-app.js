@@ -6,7 +6,7 @@ app.config(function($routeProvider, $locationProvider) {
 	.when("/", {controller: HomeCtrl, templateUrl: "/static/templates/home.html"})
 	.when("/about", {templateUrl: "/static/templates/about.html"})
 	.when("/issue/:slug", {controller: IssueCtrl, templateUrl: "/static/templates/issue.html"})
-	.otherwise({redirectTo: "/"});
+	.otherwise({templateUrl: "/static/templates/404.html"});
 });
 
 app.filter("fromNow", function() {
@@ -60,6 +60,7 @@ function IssueCtrl($scope, $routeParams) {
 	$.get("/api/issues?slug=" + $routeParams.slug, function(response) {
 		$scope.$apply(function() {
 			$scope.issue = response[0] || null;
+			$scope.loaded = true;
 		});
 	});
 
