@@ -9,6 +9,7 @@
 
 <div class="container">
 	<ul class="list-group">
+		<h3 ng-if="issues.length == 0">There are no issues yet. <a href="/issue/new">Create one!</a></h3>
 		<a href="/issue/{{issue.slug}}" ng-repeat="issue in issues">
 			<li class="list-group-item">
 				<b>{{issue.title}}</b>
