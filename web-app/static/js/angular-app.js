@@ -213,3 +213,32 @@ function ViewpointCtrl($scope) {
 	});
 
 }
+
+function CardCtrl($scope) {
+	$scope.brightCard = function(card) {
+		card.brightCounter++;
+		card.voted = true;
+
+		$.ajax({
+			url: "/api/cards/" + card._id,
+			type: "put",
+			data: card,
+			success: function(response) {
+				console.log(response);
+			}
+		});
+	};
+
+	$scope.dimCard = function(card) {
+		card.brightCounter--;
+		card.voted = true;
+		$.ajax({
+			url: "/api/cards/" + card._id,
+			type: "put",
+			data: card,
+			success: function(response) {
+				console.log(response);
+			}
+		});
+	};
+}
